@@ -1,0 +1,95 @@
+
+.party#party(party)
+
+    
+    //- Camera Stuff
+    div(camera-capture, ng-if="camera.open")
+    canvas(style="display: none", id="camera-canvas")
+
+    //- People
+    party-people
+
+    //-Chat
+    //- div(ng-include="'partials/_chat.html'")
+
+    //- //-Settings
+    //- div(ng-include="'partials/_settings.html")
+
+    .party-container
+
+        .flyby(ng-if="flyby.on") {{flyby.text}}
+
+
+        //-Twitter
+        .tweetBox
+            .newMsg(ng-show="tweetBox")
+                h1 NEW TWEET!
+                h2
+                    span.incoming {{latestTweet.text}}
+
+                a(ng-show="latestTweet.username", ng-href="https://twitter.com/{{latestTweet.username}}")
+                    h4 @{{latestTweet.username}}
+
+            .hearts.heart-left(ng-show="hearts")
+                img(src="images/hearts.gif")
+
+            .hearts.heart-righ(ng-show="hearts")
+                img(src="images/hearts.gif")
+
+    //-Audio
+    audio(id="audioplayer", preload="none", autoplay, ng-if="message", make-message, message="{{message}}")
+        source(id="audiosrc", src="", type="audio/mp3")
+
+
+    //-Main canvas
+    .canvas-container#canvas-container
+
+
+    //-BORDERS
+    .border.top-border
+        
+        a.tweet(href="https://twitter.com/intent/tweet?screen_name=rds_zone&text=Party")
+        
+        a.people(ng-click="people.toggleOpen()")
+            .option.people-option
+                p {{users.length}}
+
+        a.camera-icon(ng-click="camera.takePicture()")
+            .option.camera-option
+
+        a.settings-icon(ng-click="settings.toggleOpen()")
+            .option.settings-option
+
+    .border.bottom-border
+        .cube
+            .face.top
+            .face.bottom
+            .face.front
+                p Send a tweet to join the party!
+            .face.right
+                p {{users.length}} have joined!
+            .face.back
+                p Don't forget to chat
+            .face.left
+                p RDS.Zone
+
+    .border.right-border
+        .option.flip-option(ng-click="flip()")
+
+    .border.left-border
+        .option.chat-option(ng-click="chatControl.toggle()")
+            br
+            br
+            p {{chats.length}}
+
+
+
+
+
+    <div add-music playlist="{{settings.playlist}}"></div>
+    
+
+
+    
+</section> 
+<!--END PARTY-->

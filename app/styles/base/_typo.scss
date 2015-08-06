@@ -1,0 +1,79 @@
+// -------------------------------------------------
+//
+// Typography
+// 
+// -------------------------------------------------
+
+
+
+@import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);
+@import url(http://fonts.googleapis.com/css?family=Karla:400,700,400italic,700italic);
+
+
+/* Webfont: ArialMT-Black */@font-face {
+    font-family: 'Arial-Black';
+    src: url('../fonts/ArialMT-Black.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/ArialMT-Black.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/ArialMT-Black.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/ArialMT-Black.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/ArialMT-Black.svg#ArialMT-Black') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+}
+
+/* Webfont: ArialMT-BlackItalic */@font-face {
+    font-family: 'Arial-Black';
+    src: url('../fonts/ArialMT-BlackItalic.eot'); /* IE9 Compat Modes */
+    src: url('../fonts/ArialMT-BlackItalic.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('../fonts/ArialMT-BlackItalic.woff') format('woff'), /* Modern Browsers */
+         url('../fonts/ArialMT-BlackItalic.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('../fonts/ArialMT-BlackItalic.svg#ArialMT-BlackItalic') format('svg'); /* Legacy iOS */
+    font-style: italic;
+    font-weight: bold;
+    text-rendering: optimizeLegibility;
+}
+
+
+
+
+
+
+
+
+body{
+    font-family: 'Arial-Black', Arial, "Inconsolata", "Karla", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 16px;
+}
+h1,h2,h3,h4,h5{
+  margin: 0;
+}
+h1,h2{
+  @include uppercase();
+}
+
+p{
+  font-size: 0.8em;
+  line-height: 1.5;
+  @include mq("large"){
+    font-size: 1em;
+  }
+}
+
+a{
+  color: black;
+  text-decoration: none;
+  &:visited{
+    color: black;
+  }
+}
+// ------------------------------------------------
+// Lists
+//
+
+ul,ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

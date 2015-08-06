@@ -1,0 +1,12 @@
+//-People partial
+
+.party-people(ng-class="{open: people.open}")
+    .people-container.group
+        h1 Party People
+        .person.col(ng-repeat="user in users")
+            a(ng-if="user.image", ng-src="https://twitter.com", href="https://twitter.com/intent/tweet?text=@{{user.username}}")
+                img(ng-if="user.image", ng-src="{{user.image}}")
+
+            img(ng-if="!user.image", src="images/laptop.gif")
+            p.username @{{user.username}}
+            p.name {{user.name}}

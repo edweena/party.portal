@@ -1,0 +1,84 @@
+// -------------------------------------------------
+//
+// Party People Partial
+// 
+// -------------------------------------------------
+
+.settings{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.9);
+    @include display(flex);
+    @include align-items(center);
+    @include justify-content(center);
+    @include flex-direction(column);
+    @include transform(translateY(-100%) translateZ(0));
+    @include transition(transform .3s ease-out);
+    &.open{
+        @include transform(translateY(0) translateZ(0));
+    }
+    .settings-title{
+        position: relative;
+        margin-top: 100px;
+        display: inline-block;
+        text-align: center;
+        border-bottom: 2px solid white;
+    }
+
+    .settings-inner{
+        position: relative;
+        width: 90%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        .setting-column{
+            position: absolute;
+            text-align: center;
+            width: 50%;
+            height: auto;
+            min-height: 50%;
+            display: block;
+            overflow: hidden;
+            padding: 20px;
+            &.right{
+                top: 0;
+                right: 0;
+            }
+            &.left{
+                top: 0;
+                left: 0;
+                select{
+                    width: 50%;
+                    margin-left: 25%;
+                    
+                    option{
+                        font-size: 2em;
+                        font-family: 'Inconsolata';
+                    }
+                }
+            }
+        }
+    }
+
+    h1, h2{
+        font-weight: lighter;
+        @include uppercase();
+    }
+
+    .exit{
+        position: absolute;
+        bottom: 75px;
+        line-height: 0.5;
+        right: 20px;
+        font-size: 5em;
+        margin: 0;
+        font-family: 'Inconsolata';
+        background: url(../images/close.svg) no-repeat center center;
+        width: 30px;
+        height: 30px;
+        background-size: contain;
+    }
+}

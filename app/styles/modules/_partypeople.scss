@@ -1,0 +1,110 @@
+// -------------------------------------------------
+//
+// Party People Partial
+// 
+// -------------------------------------------------
+
+.party-people{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    background: rgba(0,0,0,0.9);
+    @include transform(translateY(-100%) translateZ(0));
+    @include transition(transform .3s ease-out);
+    &.open{
+        @include transform(translateY(0) translateZ(0));
+    }
+
+    h1{
+        text-align: center;
+        margin-top: 100px;
+        font-weight: lighter;
+        @include uppercase();
+    }
+
+    .exit{
+        position: absolute;
+        bottom: 75px;
+        line-height: 0.5;
+        right: 20px;
+        font-size: 5em;
+        margin: 0;
+        font-family: 'Inconsolata';
+        background: url(../images/close.svg) no-repeat center center;
+        width: 30px;
+        height: 30px;
+        background-size: contain;
+    }
+
+    .group{
+        zoom: 1;
+        &:before, &:after{
+            content: '';
+            display: table;
+        }
+        &:after{
+            clear: both;
+        }
+    }
+
+
+
+    .people-container{
+        width: 90%;
+        height: 90%;
+        position: relative;
+        overflow-y: auto;
+        clear: both;
+        padding: 0;
+        margin: 0 5%;
+        .col{
+            display: block;
+            float: left;
+            margin: 1% 0 1% 1.6%;
+            width: 49.2%;
+            height: 350px;
+            &:nth-child(2n + 1){
+                margin-left: 0;
+            }
+            @include mq("medium"){
+                width: 23.8%;
+                height: 300px;
+                &:nth-child(4n + 1){
+                    margin-left: 0;
+                }
+            }
+            @include mq("large"){
+                width: 11.1%;
+                height: 200px;
+                &:nth-child(8n + 1){
+                    margin-left: 0;
+                }
+            }
+            &:first-child{
+                margin-left: 0;
+            }
+        }
+        .person, .col{
+            float: left;
+            img{
+                width: 90%;
+                margin-left: 5%;
+                height: auto;
+            }
+            p{
+                font-size: 0.75em;
+                line-height: 1;
+                margin: 5px 5%;
+                width: 90%;
+                display: inline-block;
+                &.username{
+                    border-bottom: 1px solid white;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,73 @@
+// -------------------------------------------------
+//
+// Z-Indexes
+// 
+// -------------------------------------------------
+
+// ------------------------------------------------
+
+
+
+// ------------------------------------------------
+// Party Page
+//
+
+.party-overlay{
+    z-index: 1;
+}
+
+
+
+// ------------------------------------------------
+// Chat B
+//
+
+.chat{
+    z-index: 4;
+    .chat-title-container{
+        z-index: 6;
+    }
+    .chat-container{
+        z-index: 5;
+    }
+    .chat-form{
+        z-index: 6;
+    }
+}
+
+
+
+.party-container{
+    z-index: 2;
+}
+
+.tweet-container{
+    z-index: 3;
+}
+
+
+.canvas-container{
+    z-index: 2;
+}
+
+
+.tweet-button-container{
+    z-index: 4;
+}
+
+
+.border{
+    z-index: 5;
+}
+
+.party-people{
+    z-index: 7;
+}
+
+.settings{
+    z-index: 8;
+}
+
+.camera{
+    z-index: 9;
+}

@@ -248,171 +248,6 @@ body {
     -ms-transform: translateX(-150%) translateZ(0);
     transform: translateX(-150%) translateZ(0); } }
 
-.party-instructions, .choose-name {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  padding: 50px;
-  background: black;
-  color: white;
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  box-orient: vertical;
-  -webkit-box-direction: normal;
-  box-direction: normal;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-direction: column;
-  -webkit-box-align: center;
-  box-align: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  -o-align-items: center;
-  align-items: center;
-  -ms-flex-align: center;
-  -webkit-box-pack: center;
-  box-pack: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  -o-justify-content: center;
-  justify-content: center;
-  -ms-flex-pack: center; }
-  .party-instructions h1, .choose-name h1 {
-    font-size: 1em;
-    max-width: 90%;
-    margin-left: 5%;
-    text-align: center;
-    text-transform: uppercase; }
-    @media (min-width: 1040px) {
-      .party-instructions h1, .choose-name h1 {
-        font-size: 3em; } }
-    .party-instructions h1 a:hover, .choose-name h1 a:hover {
-      text-decoration: underline; }
-  .party-instructions h2, .choose-name h2 {
-    margin-top: 100px; }
-  .party-instructions button, .choose-name button {
-    background: black;
-    color: white;
-    border: 1px solid white;
-    outline: none;
-    width: 50%;
-    height: 40px;
-    text-align: center;
-    margin-top: 25px;
-    font-family: 'Inconsolata'; }
-    .party-instructions button:active, .choose-name button:active {
-      background: white;
-      color: black; }
-  .party-instructions .teachers, .choose-name .teachers {
-    display: -webkit-box;
-    display: -moz-box;
-    display: box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    box-orient: vertical;
-    -webkit-box-direction: normal;
-    box-direction: normal;
-    -webkit-flex-direction: column;
-    -moz-flex-direction: column;
-    flex-direction: column;
-    -ms-flex-direction: column;
-    -webkit-box-align: center;
-    box-align: center;
-    -webkit-align-items: center;
-    -moz-align-items: center;
-    -ms-align-items: center;
-    -o-align-items: center;
-    align-items: center;
-    -ms-flex-align: center;
-    -webkit-box-pack: center;
-    box-pack: center;
-    -webkit-justify-content: center;
-    -moz-justify-content: center;
-    -ms-justify-content: center;
-    -o-justify-content: center;
-    justify-content: center;
-    -ms-flex-pack: center;
-    height: auto;
-    padding: 50px 0; }
-    @media (min-width: 1040px) {
-      .party-instructions .teachers, .choose-name .teachers {
-        display: -webkit-box;
-        display: -moz-box;
-        display: box;
-        display: -webkit-flex;
-        display: -moz-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: horizontal;
-        box-orient: horizontal;
-        -webkit-box-direction: normal;
-        box-direction: normal;
-        -webkit-flex-direction: row;
-        -moz-flex-direction: row;
-        flex-direction: row;
-        -ms-flex-direction: row;
-        -webkit-box-align: center;
-        box-align: center;
-        -webkit-align-items: center;
-        -moz-align-items: center;
-        -ms-align-items: center;
-        -o-align-items: center;
-        align-items: center;
-        -ms-flex-align: center;
-        -webkit-box-pack: center;
-        box-pack: center;
-        -webkit-justify-content: center;
-        -moz-justify-content: center;
-        -ms-justify-content: center;
-        -o-justify-content: center;
-        justify-content: center;
-        -ms-flex-pack: center; } }
-    .party-instructions .teachers .teacher, .choose-name .teachers .teacher {
-      width: 100px;
-      margin: 10px;
-      font-size: 0.75em;
-      text-align: center; }
-      @media (min-width: 1040px) {
-        .party-instructions .teachers .teacher, .choose-name .teachers .teacher {
-          margin: 0 25px;
-          font-size: 1em; } }
-      .party-instructions .teachers .teacher img, .choose-name .teachers .teacher img {
-        height: 50px;
-        width: auto; }
-        @media (min-width: 1040px) {
-          .party-instructions .teachers .teacher img, .choose-name .teachers .teacher img {
-            height: 65px;
-            width: auto; } }
-  .party-instructions form, .choose-name form {
-    color: black; }
-    .party-instructions form input, .choose-name form input {
-      font-family: 'Inconsolata';
-      outline: none;
-      border: 0;
-      background: black;
-      border: 1px solid white;
-      color: white;
-      height: 40px; }
-    .party-instructions form button, .choose-name form button {
-      font-family: 'Inconsolata'; }
-
 .party {
   position: fixed;
   top: 0;
@@ -898,6 +733,173 @@ body {
   height: 20px;
   width: 33.333333%;
   z-index: 99; }
+
+.party-instructions, .choose-name {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 50px;
+  background: black;
+  color: white;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  -webkit-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center; }
+  .party-instructions a, .choose-name a {
+    color: white; }
+  .party-instructions h1, .choose-name h1 {
+    font-size: 1em;
+    max-width: 90%;
+    margin-left: 5%;
+    text-align: center;
+    text-transform: uppercase; }
+    @media (min-width: 1040px) {
+      .party-instructions h1, .choose-name h1 {
+        font-size: 3em; } }
+    .party-instructions h1 a:hover, .choose-name h1 a:hover {
+      text-decoration: underline; }
+  .party-instructions h2, .choose-name h2 {
+    margin-top: 100px; }
+  .party-instructions button, .choose-name button {
+    background: black;
+    color: white;
+    border: 1px solid white;
+    outline: none;
+    width: 50%;
+    height: 40px;
+    text-align: center;
+    margin-top: 25px;
+    font-family: 'Inconsolata'; }
+    .party-instructions button:active, .choose-name button:active {
+      background: white;
+      color: black; }
+  .party-instructions .teachers, .choose-name .teachers {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-box-direction: normal;
+    box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    -webkit-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -ms-flex-align: center;
+    -webkit-box-pack: center;
+    box-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+    -ms-flex-pack: center;
+    height: auto;
+    padding: 50px 0; }
+    @media (min-width: 1040px) {
+      .party-instructions .teachers, .choose-name .teachers {
+        display: -webkit-box;
+        display: -moz-box;
+        display: box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        box-orient: horizontal;
+        -webkit-box-direction: normal;
+        box-direction: normal;
+        -webkit-flex-direction: row;
+        -moz-flex-direction: row;
+        flex-direction: row;
+        -ms-flex-direction: row;
+        -webkit-box-align: center;
+        box-align: center;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        -ms-align-items: center;
+        -o-align-items: center;
+        align-items: center;
+        -ms-flex-align: center;
+        -webkit-box-pack: center;
+        box-pack: center;
+        -webkit-justify-content: center;
+        -moz-justify-content: center;
+        -ms-justify-content: center;
+        -o-justify-content: center;
+        justify-content: center;
+        -ms-flex-pack: center; } }
+    .party-instructions .teachers .teacher, .choose-name .teachers .teacher {
+      width: 100px;
+      margin: 10px;
+      font-size: 0.75em;
+      text-align: center; }
+      @media (min-width: 1040px) {
+        .party-instructions .teachers .teacher, .choose-name .teachers .teacher {
+          margin: 0 25px;
+          font-size: 1em; } }
+      .party-instructions .teachers .teacher img, .choose-name .teachers .teacher img {
+        height: 50px;
+        width: auto; }
+        @media (min-width: 1040px) {
+          .party-instructions .teachers .teacher img, .choose-name .teachers .teacher img {
+            height: 65px;
+            width: auto; } }
+  .party-instructions form, .choose-name form {
+    color: white; }
+    .party-instructions form input, .choose-name form input {
+      font-family: 'Inconsolata';
+      outline: none;
+      border: 0;
+      background: black;
+      border: 1px solid white;
+      color: white;
+      height: 40px; }
+    .party-instructions form button, .choose-name form button {
+      font-family: 'Inconsolata'; }
 
 .chat {
   position: absolute;

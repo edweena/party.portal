@@ -1,0 +1,18 @@
+.party-instructions
+    h1(ng-if="!beenBefore")
+        a(ng-click="showForm()") CHOOSE A NAME TO JOIN THE PARTY
+
+    h1(ng-if="beenBefore")
+        a(ng-click="setUser(user.name, 'back')") CONTINUE PARTY AS {{user.name}}
+
+        br
+        p OR
+        br
+
+        
+        a(ng-click="showForm()") CHOOSE A NEW NAME
+
+
+    form#party-form(ng-show="formShowing || !beenBefore")
+        input(type="text", ng-model="user.name")
+        input(type="submit", ng-click="addUser(user)", value="submit")

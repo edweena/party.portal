@@ -2,7 +2,7 @@
 
 onConfig = ($urlRouterProvider, $stateProvider) ->
 
-    $urlRouterProvider.otherwise('/login')
+    $urlRouterProvider.otherwise('/')
 
     $stateProvider
         
@@ -14,6 +14,7 @@ onConfig = ($urlRouterProvider, $stateProvider) ->
 
         .state 'login',
             url: '/login'
+            controller: 'LoginCtrl'
             templateUrl: 'views/login.html'
 
     

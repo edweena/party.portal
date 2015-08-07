@@ -9,13 +9,13 @@ module.exports = ($timeout, Twitter) ->
             scope.users = []
             scope.tweets = []
 
-            Twitter.getUsers().then((data) ->
+            Twitter.tweets.getUsers().then((data) ->
                 for item in data
                     scope.users.push item
 
                 scope.message = 'Welcome to the party!'
 
-                Twitter.getData().then((result) ->
+                Twitter.tweets.getData().then((result) ->
                     scope.tweets = result
                     )
                 )

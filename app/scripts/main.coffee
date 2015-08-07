@@ -9,6 +9,7 @@ require 'angular-socket-io'
 require 'angular-animate'
 require 'angular-local-storage'
 require 'ng-file-upload'
+require 'angular-material'
 
 
 
@@ -19,7 +20,8 @@ requires = [
     'ngSanitize',
     'btford.socket-io',
     'LocalStorageModule',
-    'ngFileUpload'
+    'ngFileUpload',
+    'ngMaterial'
 ]
 
 

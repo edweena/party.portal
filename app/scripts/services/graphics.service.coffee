@@ -101,11 +101,13 @@ Graphics = ($http, $q) ->
             item.position.y = Math.random() * 400 - 200
             item.anchor.set(0.5)
 
+
             self.stuffContainer.addChild(item)
 
             #remove previous first item
-            self.stuffContainer.removeChild(self.stuffContainer.children[0])
+            # self.stuffContainer.removeChild(self.stuffContainer.children[0])
             self.items.push(item)
+
 
 
         
@@ -117,6 +119,7 @@ Graphics = ($http, $q) ->
             #Add a bunch from DB
             while index < self.itemCount
                 item = PIXI.Sprite.fromImage(self.sprites[(self.sprites.length - 1) - index])
+                console.log 'init', item
                 self.setItems(item)
                 index++
 
@@ -124,8 +127,7 @@ Graphics = ($http, $q) ->
             item = PIXI.Sprite.fromImage(self.moreImages[Math.floor(Math.random() * self.moreImages.length)])
             self.setItems(item)
 
-            self.loop = raf(FX.prototype.animate)
-            self.loop.start()
+            self.animate()
 
 
 
@@ -134,11 +136,7 @@ Graphics = ($http, $q) ->
 
         #self is currently a ref to RAF. NOt good
         animate: ->
-            self = FX
-
-            console.log(self.count)
-
-            
+            self = this
 
 
             for item in self.items
@@ -169,7 +167,9 @@ Graphics = ($http, $q) ->
             self.renderTexture2.render(self.stage, null, false)
             self.renderer.render(self.stage)
             
-            requestAnimationFrame(FX.prototype.animate)
+            requestAnimationFrame( ->
+                self.animate()
+                )
 
 
         
@@ -225,6 +225,7 @@ Graphics = ($http, $q) ->
                 .success((response) ->
                     for item in response
                         self.sprites.push(item.imageUrl)
+
 
                     self.initCanvas()
                     

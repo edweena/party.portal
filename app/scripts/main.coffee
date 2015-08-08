@@ -31,6 +31,7 @@ angular.module('partyApp', requires)
 require './services'
 require './controllers'
 require './directives'
+require './filters'
 
 
 #ADD ROUTE STATES

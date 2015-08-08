@@ -1,12 +1,12 @@
 //- Chat Partial
 
-.chat#chat(ng-class="{minimized: chatControl.minimized", ng-style="chatControl.setTotalHeight()")
+.chat#chat(ng-class="{minimized: chatControl.minimized}", ng-style="chatControl.setTotalHeight()")
     .chat-title-container
         h2.chat-title Party Chat Line
         .exit(ng-click="chatControl.toggle()")
 
     .chat-container#chat-container(ng-style="chatControl.setChatHeight()")
-        .chat-info(ng-repeat="chat in chats | reverse")
+        .chat-info(ng-repeat="chat in chats")
             small {{chat.created_at | date : 'MMM dd hh:mm:ssa'}}
             p
                 strong {{chat.name}}: {{chat.text}}

@@ -42,15 +42,18 @@ module.exports = ($scope, $rootScope, $state, $timeout, $mdToast, Auth, Graphics
 
 
 
-    #WELCOME USER
 
+    #WELCOME USER
     $scope.user = Auth.getUser()
     $scope.users.push($scope.user)
 
+    #if user has already been, append 'back'
     if $scope.user.hasOwnProperty('extraMsg')
 
         $scope.message = "Welcome #{$scope.user.extraMsg} #{$scope.user.name}"
         $scope.showToast("Welcome #{$scope.user.extraMsg} #{$scope.user.name}")
+
+        console.log $scope.message
 
         $scope.name = $scope.user.name
         $scope.flyby.on = true

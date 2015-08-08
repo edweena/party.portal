@@ -4,7 +4,7 @@ PIXI = require('pixi.js')
 raf = require 'raf-loop'
 
 
-Graphics = ($http, $q) ->
+Graphics = (PhotoFetch) ->
 
 
     #CONSTRUCTOR
@@ -12,7 +12,10 @@ Graphics = ($http, $q) ->
         this.width = window.innerWidth
         this.height = window.innerHeight
 
-        this.renderer = new PIXI.WebGLRenderer(window.innerWidth, window.innerHeight)
+        this.renderer = new PIXI.WebGLRenderer(
+            window.innerWidth, window.innerHeight
+            )
+
         this.stage = new PIXI.Container()
         this.stuffContainer = new PIXI.Container()
         this.switchy = false
@@ -104,8 +107,6 @@ Graphics = ($http, $q) ->
 
             self.stuffContainer.addChild(item)
 
-            #remove previous first item
-            # self.stuffContainer.removeChild(self.stuffContainer.children[0])
             self.items.push(item)
 
 
@@ -118,14 +119,24 @@ Graphics = ($http, $q) ->
 
             #Add a bunch from DB
             while index < self.itemCount
-                item = PIXI.Sprite.fromImage(self.sprites[(self.sprites.length - 1) - index])
-                console.log 'init', item
+
+                item = PIXI.Sprite.fromImage(
+                    self.sprites[(self.sprites.length - 1) - index]
+                    )
+
                 self.setItems(item)
                 index++
 
             #And one random one
-            item = PIXI.Sprite.fromImage(self.moreImages[Math.floor(Math.random() * self.moreImages.length)])
+            item = PIXI.Sprite.fromImage(
+                self.moreImages[Math.floor(Math.random() * self.moreImages.length)]
+                )
             self.setItems(item)
+
+
+            #once they are all in, remove first child
+            #remove previous first item
+            self.stuffContainer.removeChild(self.stuffContainer.children[0])
 
             self.animate()
 
@@ -196,8 +207,11 @@ Graphics = ($http, $q) ->
                 self.stage.filters = null
 
 
-            #add random image as wel
-            self.sprites.push(self.sprites[Math.floor(Math.random() * self.sprites.length)])
+            #add random image as well
+            self.sprites.push(
+                self.sprites[Math.floor(Math.random() * self.sprites.length)]
+                )
+
             item = PIXI.Sprite.fromImage(self.sprites[self.sprites.length - 1])
             self.setItems(item)
 
@@ -218,27 +232,22 @@ Graphics = ($http, $q) ->
 
 
 
-
+        #add in error callback
         init: ->
             self = this
-            $http.get('https://twit-novel-test.herokuapp.com/api/screengrab')
-                .success((response) ->
-                    for item in response
-                        self.sprites.push(item.imageUrl)
 
+            PhotoFetch.get().then((response) ->
 
-                    self.initCanvas()
-                    
-                    ).error((err) ->
-                        console.log err
+                for item in response
+                    self.sprites.push(item.imageUrl)
 
-                        #use defaults instead of db
-                        self.sprites = ['images/lime.png', 'images/coconut.png']
-                        self.initItems()
-                        self.animate()
-                        )
+                self.initCanvas()
+            )
 
             window.addEventListener('resize', self.onResize, false)
+
+
+        
 
 
         destroy: ->

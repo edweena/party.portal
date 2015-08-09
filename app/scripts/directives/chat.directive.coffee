@@ -30,7 +30,7 @@ module.exports = ($timeout, $rootScope, localStorageService, Chat) ->
 
             $scope.chatControl =
                 
-                minimized: false
+                minimized: true
                 partyName: ''
                 chats: []
 
@@ -42,9 +42,9 @@ module.exports = ($timeout, $rootScope, localStorageService, Chat) ->
 
                     window.addEventListener 'resize', ->
 
-                        scope.$apply ->
-                            scope.chatControl.setTotalHeight()
-                            scope.chatControl.setChatHeihgt()
+                        $scope.$apply ->
+                            $scope.chatControl.setTotalHeight()
+                            $scope.chatControl.setChatHeight()
                     ,false
 
 

@@ -83,4 +83,26 @@ module.exports = ($scope, $rootScope, $state, $timeout, $mdToast, Auth, Graphics
     $scope.openCamera = ->
         $scope.cameraOpen = true
 
+    $scope.togglePeople = ->
+        $scope.people.open = !$scope.people.open
+        console.log $scope.people
+
+    $scope.flip = ->
+        Graphics.flip()
+
+
+
+    #LISTEN FOR UPLOADS
+    $rootScope.$on 'msg', (event, data) ->
+        console.log data
+        $scope.flyby.on = true
+        $scope.flyby.text = data
+
+        $scope.showToast(data)
+
+        $timeout( ->
+            $scope.flyby.on = false
+            $scope.flyby.text = ''
+            )
+
 

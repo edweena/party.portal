@@ -30,7 +30,6 @@ UploadImage = ($http, $q, $rootScope, Upload) ->
             #getSig
             $http.get(s3.sigUrl + '?mimeType=' + fileType)
                 .success ((response) ->
-                    console.log response
                     s3Params = response
                     deferred.resolve(s3Params)
                 )
@@ -75,8 +74,6 @@ UploadImage = ($http, $q, $rootScope, Upload) ->
             .success((response) ->
                 #convert XML response to JSON
                 parseString(response, (err, result) ->
-
-                    console.log result
 
                     jsonResponse = result
                     deferred.resolve(jsonResponse)

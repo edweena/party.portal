@@ -96,13 +96,14 @@
                 height: auto;
             }
             p{
-                font-size: 0.75em;
+                font-size: 0.5em;
                 line-height: 1;
                 margin: 5px 5%;
                 width: 90%;
                 display: inline-block;
                 &.username{
                     border-bottom: 1px solid white;
+                    display: inline-block;
                 }
             }
         }

@@ -8,10 +8,16 @@ Graphics = (PhotoFetch) ->
 
 
     alreadyInit = false
+    graphicMethods = null
+
+    
 
 
     #CONSTRUCTOR
     FX = ->
+
+        self = this
+
         this.width = window.innerWidth
         this.height = window.innerHeight
 
@@ -30,6 +36,7 @@ Graphics = (PhotoFetch) ->
         this.outputSprite = null
 
         this.filterRGB = new PIXI.filters.ColorMatrixFilter()
+        this.filterRGB2 = new PIXI.filters.ColorMatrixFilter()
 
         #options
         this.count = 0
@@ -39,7 +46,13 @@ Graphics = (PhotoFetch) ->
         this.itemCount = 5
         this.loop = null
 
-        
+
+        this.addImage = (img) ->
+            self.onAddImage(img)
+
+        this.flip = ->
+            self.onClick()
+
 
 
 
@@ -51,9 +64,11 @@ Graphics = (PhotoFetch) ->
             'images/coconut.png'
         ]
 
-
-
         this.init()
+
+
+
+        # this.init()
 
 
     
@@ -92,7 +107,7 @@ Graphics = (PhotoFetch) ->
             self.stage.addChild(self.stuffContainer)
 
             #Add filter
-            self.stage.filters = [self.filterRGB]
+            self.stage.filters = [self.filterRGB, self.filterRGB2]
 
             self.initItems()
             alreadyInit = true
@@ -180,6 +195,14 @@ Graphics = (PhotoFetch) ->
             matrix[5] = Math.sin(self.count / 2)
             matrix[6] = Math.sin(self.count / 4)
 
+            matrix2 = self.filterRGB2.matrix
+            matrix2[1] = Math.sin(self.count) * 1.5
+            matrix2[2] = Math.cos(self.count) / 3
+            matrix2[3] = Math.cos(self.count) / 1.5
+            matrix2[4] = Math.sin(self.count * 3) * 2
+            matrix2[5] = Math.sin(self.count / 6)
+            matrix2[6] = Math.sin(self.count / 2)
+
             self.renderTexture2.render(self.stage, null, false)
             self.renderer.render(self.stage)
             
@@ -205,10 +228,12 @@ Graphics = (PhotoFetch) ->
 
             self.switchy = !self.switchy
 
+
+
             if !self.switchy
-                self.stage.filters = [filter]
+                self.stage.filters = [self.filterRGB]
             else
-                self.stage.filters = null
+                self.stage.filters = [self.filterRGB2]
 
 
             #add random image as well
@@ -225,11 +250,11 @@ Graphics = (PhotoFetch) ->
 
 
         #ADD NEW IMAGE
-        addImage: (image) ->
+        onAddImage: (image) ->
             self = this
             self.sprites.push(image)
             item = PIXI.Sprite.fromImage(self.sprites[self.sprites.length - 1])
-            setItems(item)
+            self.setItems(item)
 
 
         
@@ -261,6 +286,9 @@ Graphics = (PhotoFetch) ->
             console.log 'Destroy function goes here'
 
 
+    
+
+
 
 
     
@@ -272,13 +300,16 @@ Graphics = (PhotoFetch) ->
     return{
         
         init: ->
-            new FX()
+            graphicMethods = new FX()
 
         alreadyInit: ->
             return alreadyInit
 
         addImage: (image) ->
-            FX.prototype.addImage(image)
+            graphicMethods.addImage(image[0])
+
+        flip: ->
+            graphicMethods.flip()
 
     }
 

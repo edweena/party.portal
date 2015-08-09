@@ -55,13 +55,26 @@ module.exports = ($scope, $rootScope, $state, $timeout, $mdToast, Auth, Graphics
         $scope.message = "Welcome #{$scope.user.extraMsg} #{$scope.user.name}"
         $scope.showToast("Welcome #{$scope.user.extraMsg} #{$scope.user.name}")
 
-        console.log $scope.message
 
         $scope.name = $scope.user.name
         $scope.flyby.on = true
         $scope.flyby.text = "Welcome #{$scope.user.extraMsg} To The Party #{$scope.user.name}"
 
         $timeout(->
+            $scope.flyby.on = false
+            $scope.flyby.text = ''
+            )
+    else
+        $scope.message = "Welcome #{$scope.user.name}"
+        $scope.showToast("Welcome #{scope.user.name}")
+
+
+        $scope.name = $scope.user.name
+        $scope.flyby.on = true
+
+        $scope.flyby.text = "Welomce To The Party #{$scope.user.name}"
+
+        $timeout( ->
             $scope.flyby.on = false
             $scope.flyby.text = ''
             )

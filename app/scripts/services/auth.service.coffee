@@ -40,8 +40,9 @@ Auth = () ->
 
         
         getUser: ->
+
             return{
-                name: user
+                name: user.name
                 extraMsg: extraMsg
             }
 

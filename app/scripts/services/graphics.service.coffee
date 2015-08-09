@@ -64,7 +64,6 @@ Graphics = (PhotoFetch) ->
 
         initCanvas: ->
 
-            console.log('called')
             self = this
             self.renderTexture = new PIXI.RenderTexture(self.renderer, self.renderer.width, self.renderer.height)
             self.renderTexture2 = new PIXI.RenderTexture(self.renderer, self.renderer.width, self.renderer.height)

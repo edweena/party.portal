@@ -7,6 +7,7 @@ app.directive 'instructions', require './instructions.directive'
 app.directive 'login', require './login.directive'
 app.directive 'audiomessage', require './audiomessage.directive'
 app.directive 'chat', require './chat.directive'
+app.directive 'camera', require './camera.directive'
 
 
 # app.controller('MainCtrl', require('./main.controller'))

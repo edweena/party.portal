@@ -1,6 +1,6 @@
 'use strict'
 
-PIXI = require('pixi.js')
+PIXI = require 'pixi.js'
 raf = require 'raf-loop'
 
 
@@ -226,7 +226,7 @@ Graphics = (PhotoFetch) ->
 
 
         #ADD NEW IMAGE
-        addImage: ->
+        addImage: (image) ->
             self = this
             self.sprites.push(image)
             item = PIXI.Sprite.fromImage(self.sprites[self.sprites.length - 1])
@@ -277,6 +277,9 @@ Graphics = (PhotoFetch) ->
 
         alreadyInit: ->
             return alreadyInit
+
+        addImage: (image) ->
+            FX.prototype.addImage(image)
 
     }
 

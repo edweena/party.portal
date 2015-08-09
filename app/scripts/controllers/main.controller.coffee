@@ -6,6 +6,8 @@ module.exports = ($scope, $rootScope, $state, $timeout, $mdToast, Auth, Graphics
     $scope.user = {}
     $scope.users = []
 
+    $scope.cameraOpen = false
+
     if !Graphics.alreadyInit()
         Graphics.init()
 
@@ -63,5 +65,9 @@ module.exports = ($scope, $rootScope, $state, $timeout, $mdToast, Auth, Graphics
             $scope.flyby.on = false
             $scope.flyby.text = ''
             )
+
+
+    $scope.openCamera = ->
+        $scope.cameraOpen = true
 
 

@@ -3,7 +3,7 @@
 
     
     //- Camera Stuff
-    div(camera-capture, ng-if="camera.open")
+    div(ng-if="cameraOpen", camera)
     canvas(style="display: none", id="camera-canvas")
 
     //- People
@@ -52,7 +52,7 @@
             .option.people-option
                 p {{users.length}}
 
-        a.camera-icon(ng-click="camera.takePicture()")
+        a.camera-icon(ng-click="openCamera()")
             .option.camera-option
 
         a.settings-icon(ng-click="settings.toggleOpen()")
@@ -78,7 +78,7 @@
         .option.chat-option(ng-click="chatControl.toggle()")
             br
             br
-            p {{chats.length}}
+            p {{chatControl.chats.length}}
 
 
 

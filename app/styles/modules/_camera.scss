@@ -1,0 +1,49 @@
+.camera{
+    
+    
+    
+    
+}
+
+
+.camera{
+    cursor: move !important;
+    position: absolute;
+    border: 1px solid white;
+    background: black;
+    //75  + 10 breathing room
+    bottom: 85px;
+    right: 85px;
+    width: 200px;
+    height: auto;
+    .exit{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 25px;
+        padding-right: 5%;
+        background: black;
+        z-index: 999;
+        left: 0;
+        background: url(../images/close.svg) no-repeat;
+        background-color: black;
+        background-size: 8%;
+        background-position: 95% 50%;
+    }
+    video{
+        width: 100%;
+    }
+    button{
+        width: 100%;
+        background: black;
+        color: white;
+        font-family: 'Inconsolata';
+        margin: 0;
+        border: 1px solid transparent;
+        &:hover, &:active{
+            background: white;
+            color: black;
+        }
+    }
+}

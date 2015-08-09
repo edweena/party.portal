@@ -44,29 +44,6 @@
     // background: url(../images/gif2.gif);
     background-repeat: no-repeat !important;
 
-    .camera{
-        position: absolute;
-        //75  + 10 breathing room
-        bottom: 85px;
-        right: 85px;
-        width: 200px;
-        height: auto;
-        video{
-            width: 100%;
-        }
-        button{
-            width: 100%;
-            background: black;
-            border: 1px solid white;
-            color: white;
-            font-family: 'Inconsolata';
-            margin: 0;
-            &:hover, &:active{
-                background: white;
-                color: black;
-            }
-        }
-    }
     .tweet-button-container{
         position: absolute;
         top: 40px;

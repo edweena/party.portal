@@ -1,6 +1,7 @@
 //- Camera partial
 
-.camera#camera(ng-class="{open: open}")
+.camera#camera(ng-class="{open: camera.open}")
+    .exit(ng-click="closeCamera()")
     video#video
     button#startbutton(ng-click="startPhoto($event)") Take Picture + Upload To Party
 

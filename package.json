@@ -55,6 +55,7 @@
     "angular-socket-io": "^0.7.0",
     "angular-ui-router": "^0.2.15",
     "cash-dom": "^1.0.0",
+    "draggable": "^2.1.2",
     "ng-file-upload": "^6.0.3",
     "pixi.js": "^3.0.7",
     "raf-loop": "^1.1.3",

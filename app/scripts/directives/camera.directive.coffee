@@ -1,5 +1,7 @@
 'use strict'
 
+Draggable = require 'draggable'
+
 module.exports = ($rootScope, UploadImage, Graphics) ->
     return{
         
@@ -15,8 +17,15 @@ module.exports = ($rootScope, UploadImage, Graphics) ->
             video = null
             canvas = null
             photo = null
+            cameraStream = null
 
             startbutton = null
+
+
+            #Set as draggable
+            cambox = document.getElementById 'camera'
+
+            new Draggable(cambox)
 
 
             #---------------------------------------
@@ -114,11 +123,29 @@ module.exports = ($rootScope, UploadImage, Graphics) ->
             # scope methods
             #
 
+
+
+
             scope.camera =
                 open: false
                 takePicture: ->
                     console.log 'take picture!'
                     this.open = true
+
+
+
+            scope.closeCamera = ->
+
+
+                #shut down video
+                video.pause()
+                video.src = null or ''
+                cameraStream.stop()
+                cameraStream = null
+                scope.camera.open = false
+
+            
+
 
             scope.startup = ->
                 video = document.getElementById('video')
@@ -142,6 +169,8 @@ module.exports = ($rootScope, UploadImage, Graphics) ->
                     else
                         vendorURL = window.URL or window.webkitURL
                         video.src = vendorURL.createObjectURL(stream)
+
+                    cameraStream = stream
                     
                     video.play()
                     return
@@ -173,6 +202,7 @@ module.exports = ($rootScope, UploadImage, Graphics) ->
             scope.startPhoto = (ev) ->
                 takePicture()
                 ev.preventDefault()
+
 
 
 

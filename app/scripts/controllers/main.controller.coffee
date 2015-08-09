@@ -6,8 +6,8 @@ module.exports = ($scope, $rootScope, $state, $timeout, $mdToast, Auth, Graphics
     $scope.user = {}
     $scope.users = []
 
-    Graphics.init()
-
+    if !Graphics.alreadyInit()
+        Graphics.init()
 
 
     #see if user is logged in. If not, redirect to login

@@ -6,7 +6,7 @@
         .exit(ng-click="chatControl.toggle()")
 
     .chat-container#chat-container(ng-style="chatControl.setChatHeight()")
-        .chat-info(ng-repeat="chat in chats")
+        .chat-info(ng-repeat="chat in chatControl.chats | reverse")
             small {{chat.created_at | date : 'MMM dd hh:mm:ssa'}}
             p
                 strong {{chat.name}}: {{chat.text}}

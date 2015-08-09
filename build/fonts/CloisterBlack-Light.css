@@ -1,0 +1,12 @@
+/* Webfont: CloisterBlack-Light */@font-face {
+    font-family: 'CloisterBlack';
+    src: url('CloisterBlack-Light.eot'); /* IE9 Compat Modes */
+    src: url('CloisterBlack-Light.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('CloisterBlack-Light.woff') format('woff'), /* Modern Browsers */
+         url('CloisterBlack-Light.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('CloisterBlack-Light.svg#CloisterBlack-Light') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+

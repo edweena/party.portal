@@ -40,14 +40,34 @@ module.exports = ($timeout, $rootScope, localStorageService, Chat) ->
                     self.getChats()
                     self.getName()
 
-                minimize: ->
-                    self = this
-                    self.minimized = true
+                    window.addEventListener 'resize', ->
+
+                        scope.$apply ->
+                            scope.chatControl.setTotalHeight()
+                            scope.chatControl.setChatHeihgt()
+                    ,false
 
 
-                maximize: ->
-                    self = this
-                    self.minimized = false
+                setTotalHeight: ->
+
+                    height = window.innerHeight
+
+                    return{
+                        top: '75px'
+                        height: height - 150 +'px'
+                    }
+
+
+                setChatHeight: ->
+
+                    totalChatHeight = window.innerHeight - 150
+
+                    #get height of total chat height and subtract 150
+                    return{
+                        top: '50px'
+                        height: totalChatHeight - 100 - 50 + 'px'
+                    }
+
 
                 #Get user's name
                 getName: ->
@@ -63,9 +83,9 @@ module.exports = ($timeout, $rootScope, localStorageService, Chat) ->
                         $timeout ->
                             self.scrollToBottom()
 
-                toggle: ->
+                toggle: (event) ->
+                    self = $scope.chatControl
                     self.minimized = !self.minimized
-                    console.log self.minimized
 
 
                 scrollToBottom: ->
@@ -95,6 +115,7 @@ module.exports = ($timeout, $rootScope, localStorageService, Chat) ->
                     obj =
                         text: text
                         name: partyName
+                        'created_at': Date.now()
 
                     Chat.save(obj, ->
                         
@@ -103,6 +124,9 @@ module.exports = ($timeout, $rootScope, localStorageService, Chat) ->
                         self.scrollToBottom()
 
                         $scope.newChat.$setPristine()
+
+                        #clear model
+                        scope.newChat = {}
 
 
                         )

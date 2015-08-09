@@ -7,6 +7,9 @@ raf = require 'raf-loop'
 Graphics = (PhotoFetch) ->
 
 
+    alreadyInit = false
+
+
     #CONSTRUCTOR
     FX = ->
         this.width = window.innerWidth
@@ -60,6 +63,8 @@ Graphics = (PhotoFetch) ->
         
 
         initCanvas: ->
+
+            console.log('called')
             self = this
             self.renderTexture = new PIXI.RenderTexture(self.renderer, self.renderer.width, self.renderer.height)
             self.renderTexture2 = new PIXI.RenderTexture(self.renderer, self.renderer.width, self.renderer.height)
@@ -91,6 +96,7 @@ Graphics = (PhotoFetch) ->
             self.stage.filters = [self.filterRGB]
 
             self.initItems()
+            alreadyInit = true
 
 
         
@@ -185,8 +191,7 @@ Graphics = (PhotoFetch) ->
 
         
         #RESIZE HANDLER
-        onResize: ->
-            self = this
+        onResize: (self) ->
             width = window.innerWidth
             height = window.innerHeight
             self.renderer.resize(width, height)
@@ -244,7 +249,10 @@ Graphics = (PhotoFetch) ->
                 self.initCanvas()
             )
 
-            window.addEventListener('resize', self.onResize, false)
+            window.addEventListener 'resize', ->
+                self.onResize(self)
+            ,false
+
 
 
         
@@ -266,6 +274,9 @@ Graphics = (PhotoFetch) ->
         
         init: ->
             new FX()
+
+        alreadyInit: ->
+            return alreadyInit
 
     }
 

@@ -12,7 +12,7 @@ module.exports = () ->
         link: (scope, element, attrs) ->
 
             message = attrs.message
-            console.log message
+
             encodedMessage = encodeURIComponent(message)
 
 

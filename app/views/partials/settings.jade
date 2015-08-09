@@ -1,0 +1,17 @@
+.settings(ng-class="{open: settings.open}")
+
+    h1.settings-title User Settings
+
+    .settings-inner
+        .setting-column.left
+            h2.md-title Select Music Playlist
+            div(layout="row")
+                select(ng-model="settings.currentPlaylist")
+                    option(value="cumbia", selected="selected") Cumbia
+                    option(value="rap") Rap
+                    option(value="disco") Disco
+
+        .setting-column.right
+            h2.md-title Change User Name
+            input(type="text", placeholder="{{name}}")
+            input(type="submit", value="Submit")

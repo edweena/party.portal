@@ -12,6 +12,9 @@
     //- Chat
     chat
 
+    //- Settings
+    settings
+
 
     //- //-Settings
     //- div(ng-include="'partials/_settings.html")
@@ -55,7 +58,7 @@
         a.camera-icon(ng-click="openCamera()")
             .option.camera-option
 
-        a.settings-icon(ng-click="settings.toggleOpen()")
+        a.settings-icon(ng-click="toggleSettings()")
             .option.settings-option
 
     .border.bottom-border
@@ -79,6 +82,9 @@
             br
             br
             p {{chatControl.chats.length}}
+
+
+    div(add-music, playlist="{{settings.playlist}}")
 
 
 

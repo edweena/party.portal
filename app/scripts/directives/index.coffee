@@ -8,7 +8,7 @@ app.directive 'login', require './login.directive'
 app.directive 'audiomessage', require './audiomessage.directive'
 app.directive 'chat', require './chat.directive'
 app.directive 'camera', require './camera.directive'
+app.directive 'addmusic', require './addmusic.directive'
+app.directive 'settings', require './settings.directive'
+app.directive 'addMusic', require './addmusic.directive'
 
-
-# app.controller('MainCtrl', require('./main.controller'))
-# app.controller('LoginCtrl', require('./login.controller'))

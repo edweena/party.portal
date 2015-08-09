@@ -87,6 +87,9 @@ module.exports = ($scope, $rootScope, $state, $timeout, $mdToast, Auth, Graphics
         $scope.people.open = !$scope.people.open
         console.log $scope.people
 
+    $scope.toggleSettings = ->
+        $scope.settings.open = !$scope.settings.open
+
     $scope.flip = ->
         Graphics.flip()
 
